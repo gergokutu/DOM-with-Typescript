@@ -6,27 +6,34 @@
 const body: HTMLBodyElement = document.getElementsByTagName('body')[0];
 
 const title: HTMLHeadingElement = document.createElement('h1');
-title.innerHTML = "Manipulate the DOM with Typescript";
+title.innerText = "Manipulate the DOM with Typescript";
 body.appendChild(title);
 
 // Change background color with button
 const backgroundButton: HTMLButtonElement = document.createElement('button');
-backgroundButton.innerHTML = 'Change Background';
+backgroundButton.innerText = 'Change Background';
 body.appendChild(backgroundButton);
 
 const changeBackground = (element: HTMLElement, color: string): void => {
-  element.style.backgroundColor = color;
+  element.setAttribute('style', `background-color: ${color}; transition: all 0.5s ease-in-out;`);
 };
 
 const newBackground = (): void => {
   const actualColor: string | null = body.style.backgroundColor;
-  const testColor: string = actualColor === '' ? 'rgba(199, 225, 230, 0.5)' : '';
-  changeBackground(body, testColor);
+  let randomColor: string = '#';
+  const colorCharacters: string = '0123456789ABCDEF';
+
+  for (let i = 0; i < 6; i++) {
+    randomColor += colorCharacters[Math.floor(Math.random() * colorCharacters.length)];
+  };
+
+  const newColor: string = actualColor === '' ? randomColor : '';
+
+  changeBackground(body, newColor);
 };
 
 const addListener = (element: HTMLElement, eventTOListen: string, eventHandler: () => void): void => {
   element.addEventListener(eventTOListen, eventHandler);
-  console.log("add")
 };
 
 const clickEvent: string = 'click';
@@ -39,18 +46,17 @@ const addOneButton: HTMLButtonElement = document.createElement('button');
 
 body.appendChild(counterContainer);
 counterContainer.appendChild(counter);
-counterContainer.style.marginTop = '20px';
-counter.innerHTML = '0';
-counter.style.margin = '10px';
-counter.style.fontSize = '2rem';
+counterContainer.style.marginTop = '1rem';
+counter.innerText = '0';
+counter.setAttribute('style', 'margin: 1rem; font-size: 2rem;');
 counterContainer.appendChild(addOneButton);
-addOneButton.innerHTML = 'Add +1';
-addOneButton.style.margin = '10px';
+addOneButton.innerText = 'Add +1';
+addOneButton.style.margin = '1rem';
 
 const addOneToCounter = (): void => {
-  let counterNumber: number = parseInt(counter.innerHTML);
+  let counterNumber: number = parseInt(counter.innerText);
   counterNumber++;
-  counter.innerHTML = `${counterNumber}`;
+  counter.innerText = `${counterNumber}`;
 };
 
 addListener(addOneButton, clickEvent, addOneToCounter);
