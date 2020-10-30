@@ -39,10 +39,13 @@ style.innerHTML = `
     margin: 1rem;
   }
 `
-
 body.setAttribute('class', 'container');
-title.innerText = "Manipulate the DOM with Typescript";
+
 body.appendChild(title);
+title.setAttribute('class', 'header');
+const titleText: Text = document.createTextNode('Manipulate the DOM with Typescript');
+title.appendChild(titleText);
+
 
 // Change background color with button
 const backgroundButton: HTMLButtonElement = document.createElement('button');
