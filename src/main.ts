@@ -43,13 +43,17 @@ body.setAttribute('class', 'container');
 
 body.appendChild(title);
 title.setAttribute('class', 'header');
+// title.innerHTML = 'Manipulate the DOM with Typescript';
+// title.innerText = 'Manipulate the DOM with Typescript';
+// All browsers know createTextNode
 const titleText: Text = document.createTextNode('Manipulate the DOM with Typescript');
 title.appendChild(titleText);
 
 
 // Change background color with button
 const backgroundButton: HTMLButtonElement = document.createElement('button');
-backgroundButton.innerText = 'Change Background';
+const backgroundButtonText: Text = document.createTextNode('Change Background');
+backgroundButton.appendChild(backgroundButtonText);
 body.appendChild(backgroundButton);
 
 const changeBackground = (element: HTMLElement, color: string): void => {
