@@ -4,7 +4,8 @@
 // Line 15: body.appendChild(title) > Object is possibly null
 // const body: HTMLBodyElement | null = document.querySelector('body');
 const body: HTMLBodyElement = document.getElementsByTagName('body')[0];
-
+const head: HTMLHeadElement = document.head;
+const style: HTMLStyleElement = document.createElement('style');
 const title: HTMLHeadingElement = document.createElement('h1');
 title.innerText = "Manipulate the DOM with Typescript";
 body.appendChild(title);
