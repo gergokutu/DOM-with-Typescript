@@ -7,6 +7,39 @@ const body: HTMLBodyElement = document.getElementsByTagName('body')[0];
 const head: HTMLHeadElement = document.head;
 const style: HTMLStyleElement = document.createElement('style');
 const title: HTMLHeadingElement = document.createElement('h1');
+
+// Add CSS styles inside head element
+head.appendChild(style);
+style.innerHTML = `
+  .container {
+    background-color: rgb(240, 226, 226);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .header {
+    font-size: 3rem;
+    color: green;
+  }
+
+  counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+  }
+
+  .counter {
+    font-size: 2rem;
+  }
+
+  .add-button {
+    margin: 1rem;
+  }
+`
+
 title.innerText = "Manipulate the DOM with Typescript";
 body.appendChild(title);
 
