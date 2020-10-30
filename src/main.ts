@@ -24,7 +24,7 @@ style.innerHTML = `
     color: green;
   }
 
-  counter-container {
+  .counter-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,17 +83,20 @@ addListener(backgroundButton, clickEvent, newBackground);
 
 // Add +1 to the counter
 const counterContainer: HTMLDivElement = document.createElement('div');
-const counter: HTMLSpanElement = document.createElement('span');
-const addOneButton: HTMLButtonElement = document.createElement('button');
-
+counterContainer.setAttribute('class', 'counter-container');
 body.appendChild(counterContainer);
+
+const counter: HTMLSpanElement = document.createElement('span');
+const counterText: Text = document.createTextNode('0');
+counter.appendChild(counterText);
+counter.setAttribute('class', 'counter');
 counterContainer.appendChild(counter);
-counterContainer.style.marginTop = '1rem';
-counter.innerText = '0';
-counter.setAttribute('style', 'margin: 1rem; font-size: 2rem;');
+
+const addOneButton: HTMLButtonElement = document.createElement('button');
+const addOneButtonText: Text = document.createTextNode('Add +1');
+addOneButton.appendChild(addOneButtonText);;
+addOneButton.setAttribute('class', 'add-button');
 counterContainer.appendChild(addOneButton);
-addOneButton.innerText = 'Add +1';
-addOneButton.style.margin = '1rem';
 
 const addOneToCounter = (): void => {
   let counterNumber: number = parseInt(counter.innerText);
