@@ -38,7 +38,7 @@ style.innerHTML = `
   .add-button {
     margin: 1rem;
   }
-`
+`;
 body.setAttribute('class', 'container');
 
 body.appendChild(title);
@@ -70,7 +70,6 @@ const newBackground = (): void => {
   };
 
   const newColor: string = actualColor === '' ? randomColor : '';
-
   changeBackground(body, newColor);
 };
 
@@ -94,7 +93,7 @@ counterContainer.appendChild(counter);
 
 const addOneButton: HTMLButtonElement = document.createElement('button');
 const addOneButtonText: Text = document.createTextNode('Add +1');
-addOneButton.appendChild(addOneButtonText);;
+addOneButton.appendChild(addOneButtonText);
 addOneButton.setAttribute('class', 'add-button');
 counterContainer.appendChild(addOneButton);
 
