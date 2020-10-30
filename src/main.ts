@@ -40,6 +40,7 @@ style.innerHTML = `
   }
 `
 
+body.setAttribute('class', 'container');
 title.innerText = "Manipulate the DOM with Typescript";
 body.appendChild(title);
 
